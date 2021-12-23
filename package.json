@@ -26,6 +26,7 @@
     "hcreate": "npx hardhat",
     "hcompile": "npx hardhat compile",
     "hdeploy": "npx hardhat run scripts/deploy.js",
+    "hinteract": "npx hardhat run src/App/index.js",
     "hverify": "npx hardhat verify 0xFEf1CAb1d78a9616023722f5280e6F8ba0dc15D3 \"Zimbabwe Test 1\" ZIM1 9 1000000 25000 0xDC72E097f058F7a46f27aD7b303CE9b773c9cBCe 0x87eDa0892b0456DBE2aaF811EBe9b96923EBc48A --contract \"contracts/BEP20SmartContract.sol:BEP20SmartContract\"",
     "hrun": "yarn hclean && yarn hcompile && yarn hdeploy",
     "hflatten": "npx hardhat flatten src/token/BEP20/BEP20SmartContract.sol > contracts/BEP20SmartContract.sol",
@@ -79,7 +80,7 @@
     "prettier": "^2.5.1",
     "prettier-plugin-solidity": "^1.0.0-beta.19",
     "react": "17.0.2",
-    "react-bootstrap": "2.0.3",
+    "react-bootstrap": "2.0.4",
     "react-dom": "17.0.2",
     "react-scripts": "^5.0.0",
     "skeleton-elements": "^4.0.0",
@@ -89,7 +90,7 @@
     "storage-manager-js": "^4.0.7",
     "surya": "^0.4.5",
     "trim-newlines": "^4.0.2",
-    "truffle": "^5.4.24",
+    "truffle": "^5.4.26",
     "truffle-flattener": "^1.5.0",
     "truffle-hdwallet-provider-privkey": "^0.3.0",
     "twemoji": "^13.1.0",
@@ -98,12 +99,12 @@
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.1",
     "@truffle/hdwallet-provider": "^2.0.0",
-    "eslint": "^7.29.0",
+    "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-promise": "^5.1.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0"
   }
 }

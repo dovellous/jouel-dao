@@ -15,7 +15,7 @@ abstract contract Withdrawals is BankBaseContract {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function bankWithdraw() public{
+    function bankWithdraw() payable public{
 
         require(isDeposited[msg.sender]==true, 'Error, no previous deposit');
         uint userBalance = etherBalanceOf[msg.sender]; //for event
@@ -33,8 +33,8 @@ abstract contract Withdrawals is BankBaseContract {
         uint interest = interestPerSecond * depositTime;
 
         //send funds to user
-        msg.sender.transfer(etherBalanceOf[msg.sender]); //eth back to user
-        super.token.mint(msg.sender, interest); //interest to user
+        BankBaseContract.token.transfer(msg.sender, etherBalanceOf[msg.sender]); //eth back to user
+        BankBaseContract.token.mint(msg.sender, interest); //interest to user
 
         //reset depositer data
         depositStart[msg.sender] = 0;

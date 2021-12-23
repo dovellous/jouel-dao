@@ -23,27 +23,14 @@ abstract contract Lend is BankBaseContract{
     mapping(address => bool) public hasStaked;
     mapping(address => bool) public isStaking;
 
-    constructor(DappToken _dappToken, DaiToken _daiToken) public {
+    constructor(DappToken _dappToken, DaiToken _daiToken)  {
         dappToken = _dappToken;
         daiToken = _daiToken;
         lendOwner = msg.sender;
     }
 
-    // indicates if minting is finished
-    bool private _booleanValue = false;
-
     //
-    function getBooleanValue() public view returns (bool) {
-        return _booleanValue;
-    }
-
-    //
-    function setBooleanValue() public view{
-        return _booleanValue;
-    }
-
-    //
-    function bankStakeTokens(uint _amount) public {
+    function bankStakeTokens(uint _amount) payable public {
         // Require amount greater than 0
         require(_amount > 0, "amount cannot be 0");
 
@@ -64,7 +51,7 @@ abstract contract Lend is BankBaseContract{
     }
 
     // Unstaking Tokens (Withdraw)
-    function bankUnstakeTokens() public {
+    function bankUnstakeTokens() payable public {
         // Fetch staking balance
         uint balance = stakingBalance[msg.sender];
 
@@ -82,7 +69,7 @@ abstract contract Lend is BankBaseContract{
     }
 
     // Issuing Tokens
-    function bankIssueTokens() public {
+    function bankIssueTokens() payable public {
         // Only owner can call this function
         require(msg.sender == lendOwner, "caller must be the owner");
 

@@ -28,7 +28,7 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankDeposit() payable public{
+    function _bankDeposit() payable virtual public{
         bankDeposit();
     }
 
@@ -37,7 +37,7 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankWithdraw() payable public{
+    function _bankWithdraw() payable virtual public{
         bankWithdraw();
     }
 
@@ -46,7 +46,7 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankBorrow() payable public{
+    function _bankBorrow() payable virtual public{
         bankBorrow();
     }
 
@@ -55,8 +55,8 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankStakeTokens() payable public{
-        bankStakeTokens();
+    function _bankStakeTokens(uint _amount) payable virtual public{
+        bankStakeTokens(_amount);
     }
 
     /*
@@ -64,7 +64,7 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankUnstakeTokens() payable public{
+    function _bankUnstakeTokens() payable virtual public{
         bankUnstakeTokens();
     }
 
@@ -73,7 +73,7 @@ abstract contract BEP20DistributedBank is Deposits, Borrow, Lend, Withdrawals {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function _bankIssueTokens() payable public{
+    function _bankIssueTokens() payable virtual public{
         bankIssueTokens();
     }
 

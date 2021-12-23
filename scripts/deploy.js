@@ -38,6 +38,10 @@ async function main() {
   await bep20SmartContract.deployed();
 
   console.log(`${process.env.TOKEN_NAME} deployed to:`, bep20SmartContract.address);
+
+  console.log(`Run the code below to verify the contract source code: npx hardhat verify ${bep20SmartContract.address} \"${process.env.TOKEN_NAME}\" \"${process.env.TOKEN_SYMBOL}\" ${process.env.TOKEN_DECIMALS} ${process.env.TOKEN_CAP_SUPPLY} ${process.env.TOKEN_INI_SUPPLY} ${process.env.ADDRESS_1} ${process.env.ADDRESS_2}`);
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 import "../../../interfaces/BEP20.sol";
 
-contract BankToken is BEP20 {
+abstract contract BankToken is BEP20 {
 
     address public minter;
 
     event MinterChanged(address indexed from, address to);
 
-    constructor() public payable BEP20("Decentralized Bank Currency", "DBC") {
+    constructor()  payable BEP20("Decentralized Bank Currency", "DBC") {
         minter = msg.sender; // only initially
     }
 

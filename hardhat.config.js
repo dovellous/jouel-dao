@@ -32,33 +32,33 @@ module.exports = {
       url: process.env.URL_ETH_ROPSTEN + process.env.INFURA_API_KEY || "",
       chainId: 3,
       accounts:
-        process.env.PRIVATE_KEY !== undefined
-          ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
-          : [],
+          process.env.PRIVATE_KEY !== undefined
+              ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
+              : [],
     },
     rinkeby: {
       url: process.env.URL_ETH_RINKEBY + process.env.INFURA_API_KEY || "",
       chainId: 4,
       accounts:
-        process.env.PRIVATE_KEY !== undefined
-          ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
-          : [],
+          process.env.PRIVATE_KEY !== undefined
+              ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
+              : [],
     },
     kovan: {
       url: process.env.URL_ETH_KOVAN + process.env.INFURA_API_KEY || "",
       chainId: 42,
       accounts:
-        process.env.PRIVATE_KEY !== undefined
-          ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
-          : [],
+          process.env.PRIVATE_KEY !== undefined
+              ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
+              : [],
     },
     mainnet: {
       url: process.env.URL_ETH_MAINNET + process.env.INFURA_API_KEY || "",
       chainId: 1,
       accounts:
-        process.env.PRIVATE_KEY !== undefined
-          ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
-          : [],
+          process.env.PRIVATE_KEY !== undefined
+              ? [process.env.DEPLOYMENT_ACCOUNT_KEY]
+              : [],
     },
     bsc_testnet: {
       url: process.env.URL_BSC_TESTNET,
@@ -79,9 +79,9 @@ module.exports = {
   },
   etherscan: {
     apiKey:
-      process.env.BLOCKCHAIN === "ETH"
-        ? process.env.ETHERSCAN_API_KEY
-        : process.env.BSCSCAN_API_KEY,
+        process.env.BLOCKCHAIN === "ETH"
+            ? process.env.ETHERSCAN_API_KEY
+            : process.env.BSCSCAN_API_KEY,
   },
   solidity: {
     compilers: [
@@ -107,12 +107,8 @@ module.exports = {
       },
     ],
     overrides: {
-      "contracts/SwappsToken.sol": {
-        version: process.env.SOLC_VERSION_1,
-        settings: { }
-      },
-      "contracts/token/BEP20/lib/BEP20Operable.sol": {
-        version: process.env.SOLC_VERSION_1,
+      "./src/contracts/BEP20SmartContract.sol": {
+        version: process.env.SOLC_VERSION_2,
         settings: { }
       },
     },
@@ -122,7 +118,7 @@ module.exports = {
     },
   },
   paths: {
-    sources: "./contracts",
+    sources: "./src/contracts",
     tests: "./test",
     cache: "./cache",
     artifacts: "./artifacts",

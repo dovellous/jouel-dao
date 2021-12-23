@@ -1,0 +1,24 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "BEP20BrnFeeReceiverAddress",
+  "sourceName": "src/token/BEP20/interfaces/BEP20BrnFeeReceiverAddress.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getBrnFeeReceiverAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

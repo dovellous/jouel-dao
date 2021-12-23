@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-contract DaiToken {
+abstract contract DaiToken {
     string  public name = "Mock DAI Token";
     string  public symbol = "mDAI";
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
@@ -23,7 +23,7 @@ contract DaiToken {
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    constructor() public {
+    constructor() {
         balanceOf[msg.sender] = totalSupply;
     }
 

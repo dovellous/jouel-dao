@@ -36,15 +36,15 @@ abstract contract Borrow is BankBaseContract {
 
     }
 
-    function payOff() public{
+    function payOff() payable public{
 
         require(isBorrowed[msg.sender] == true, 'Error, loan not active');
-        require(super.token.transferFrom(msg.sender, address(this), collateralEther[msg.sender]/2), "Error, can't receive tokens"); //must approve dBank 1st
+        require(BankBaseContract.token.transferFrom(msg.sender, address(this), collateralEther[msg.sender]/2), "Error, can't receive tokens"); //must approve dBank 1st
 
         uint fee = collateralEther[msg.sender]/10; //calc 10% fee
 
         //send user's collateral minus fee
-        msg.sender.transfer(collateralEther[msg.sender]-fee);
+        BankBaseContract.token.transfer(msg.sender, collateralEther[msg.sender]-fee);
 
         //reset borrower's data
         collateralEther[msg.sender] = 0;
