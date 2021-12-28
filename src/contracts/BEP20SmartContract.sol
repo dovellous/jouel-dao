@@ -18,8 +18,9 @@ import "../token/BEP20/utils/PayableToken.sol";
 
 // Import DAPPS
 import "../token/BEP20/interfaces/dapps/system/BEP20DappBank.sol";
+import "../token/BEP20/interfaces/dapps/system/BEP20DappVoting.sol";
 
-contract BEP20SmartContract is BEP20Capped, BEP20Mintable, BEP20Burnable, BEP20Operable, BEP20Pausable, BEP20Deflationary, BEP20DappBank, TokenRecover {
+contract BEP20SmartContract is BEP20Capped, BEP20Mintable, BEP20Burnable, BEP20Operable, BEP20Pausable, BEP20Deflationary, BEP20DappBank, BEP20DappDAO, TokenRecover {
 
     constructor (
         string memory name_,

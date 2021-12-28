@@ -16,14 +16,7 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  /*
-        string memory name_,
-        string memory symbol_,
-        uint8 decimals_,
-        uint256 cap_,
-        uint256 initialBalance_,
-        address payable feeReceiver_
-   */
+
   const BEP20SmartContract = await hre.ethers.getContractFactory(process.env.CONTRACT_NAME);
   const bep20SmartContract = await BEP20SmartContract.deploy(
       process.env.TOKEN_NAME,
@@ -37,10 +30,11 @@ async function main() {
 
   await bep20SmartContract.deployed();
 
+  const verifyContractSourceCode = `npx hardhat verify ${bep20SmartContract.address} \\"${process.env.TOKEN_NAME}\\" \\"${process.env.TOKEN_SYMBOL}\\" ${process.env.TOKEN_DECIMALS} ${process.env.TOKEN_CAP_SUPPLY} ${process.env.TOKEN_INI_SUPPLY} ${process.env.ADDRESS_1} ${process.env.ADDRESS_2}`;
+
   console.log(`${process.env.TOKEN_NAME} deployed to:`, bep20SmartContract.address);
 
-  console.log(`Run the code below to verify the contract source code: npx hardhat verify ${bep20SmartContract.address} \"${process.env.TOKEN_NAME}\" \"${process.env.TOKEN_SYMBOL}\" ${process.env.TOKEN_DECIMALS} ${process.env.TOKEN_CAP_SUPPLY} ${process.env.TOKEN_INI_SUPPLY} ${process.env.ADDRESS_1} ${process.env.ADDRESS_2}`);
-
+  console.log(`Run the code below to verify the contract source code: \n\n${verifyContractSourceCode}`);
 
 }
 
