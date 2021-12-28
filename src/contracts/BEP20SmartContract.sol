@@ -86,12 +86,12 @@ contract BEP20SmartContract is BEP20Capped, BEP20Mintable, BEP20Burnable, BEP20O
         super._transfer(sender, recipient, amount);
     }
 
-    function bankDeposit(address sender, address recipient, uint256 amount) public pure returns (bool) {
-        return super._bankDeposit(sender, recipient, amount);
+    function bankDeposit() public pure returns (bool) {
+        return super._bankDeposit();
     }
 
-    function bankWithdraw(address sender, address recipient, uint256 amount) public pure returns (bool) {
-        return super._bankWithdraw(sender, recipient, amount);
+    function bankWithdraw(uint256 amount) public pure returns (bool) {
+        return super._bankWithdraw(amount);
     }
 
 }

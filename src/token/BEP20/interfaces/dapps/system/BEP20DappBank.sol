@@ -29,7 +29,7 @@ abstract contract BEP20DappBank {
     /// @notice Process a deposit to the bank
     /// @param amount The amount that a user wants to deposit
     /// @return balance The current account balance
-    function deposit() public payable returns (uint256) {
+    function _bankDeposit() public payable returns (uint256) {
 
         // Transfer funds from the user to the bank
         balances[msg.sender] += msg.value;
@@ -42,11 +42,10 @@ abstract contract BEP20DappBank {
     /// @param amount The amount that a user wants to withdraw. The bank takes a
     /// 0.3% fee on every withdrawal
     /// @return balance The current account balance
-    function withdraw(uint256 amount) public returns (uint256) {
+    function _bankWithdraw(uint256 amount) public returns (uint256) {
         require(balances[msg.sender] >= amount);
         // Calculate the fee that is owed to the bank
         (uint256 amountToUser, uint256 amountToBank) = calculateBankFee(amount);
-        msg.sender.transfer(msg.sender, amountToUser);
         // Decrease the balance by the amount sent to the user
         balances[msg.sender] -= amountToUser;
         // Decrease the balance by the amount sent to the bank
