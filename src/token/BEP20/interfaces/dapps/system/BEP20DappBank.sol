@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: MIT
 
+
+
 pragma solidity ^0.8.0;
 
 /// @title A sample bank contract
@@ -27,7 +29,6 @@ abstract contract BEP20DappBank {
     uint256 bankFee = 0;
 
     /// @notice Process a deposit to the bank
-    /// @param amount The amount that a user wants to deposit
     /// @return balance The current account balance
     function _bankDeposit() public payable returns (uint256) {
 
@@ -73,17 +74,17 @@ abstract contract BEP20DappBank {
     /// @notice Set the fee that the bank takes
     /// @param fee The fee that bankFee should be set to
     /// @return bankFee The new value of the bank fee
-    function setBankFee(uint256 fee) public returns (uint256) {
+    function _setBankFee(uint256 fee) public returns (uint256) {
         bankFee = fee;
         return bankFee;
     }
 
     /// @notice Set the fee that the bank takes
-    /// @param fee The fee that bankFee should be set to
-    /// @return bankFee The new value of the bank fee
-    function setBankFeeAddress(address _address) public returns (address) {
-        BANK_FEE_ADDRESS = _address;
-        return _address;
+    /// @param bankAddress The address that the bankFee should be sent to
+    /// @return BANK_FEE_ADDRESS The new value of the bank fee
+    function _setBankFeeAddress(address bankAddress) public returns (address) {
+        BANK_FEE_ADDRESS = bankAddress;
+        return BANK_FEE_ADDRESS;
     }
 
     /// @notice Get the user's bank balance

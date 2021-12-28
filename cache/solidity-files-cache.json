@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\apps\\repos\\metaverse-bank\\src\\contracts\\BEP20SmartContract.sol": {
-      "lastModificationDate": 1640255564978,
-      "contentHash": "6a052b0feee78aae21bc90b0f1776944",
+      "lastModificationDate": 1640701822279,
+      "contentHash": "48b9e2e391a30d0405416ee3ff7a3f26",
       "sourceName": "src/contracts/BEP20SmartContract.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -38,7 +38,8 @@
         "../token/BEP20/interfaces/BEP20Deflationary.sol",
         "../token/BEP20/utils/TokenRecover.sol",
         "../token/BEP20/utils/PayableToken.sol",
-        "../token/BEP20/interfaces/dapps/system/BEP20DappBank.sol"
+        "../token/BEP20/interfaces/dapps/system/BEP20DappBank.sol",
+        "../token/BEP20/interfaces/dapps/system/BEP20DappVoting.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
@@ -394,8 +395,8 @@
       ]
     },
     "C:\\apps\\repos\\metaverse-bank\\src\\token\\BEP20\\interfaces\\dapps\\system\\BEP20DappBank.sol": {
-      "lastModificationDate": 1640255610618,
-      "contentHash": "3de1344ec5d77aa4517d2e29c9233e32",
+      "lastModificationDate": 1640697927674,
+      "contentHash": "94287fb37115ffaf0fdd352857a23944",
       "sourceName": "src/token/BEP20/interfaces/dapps/system/BEP20DappBank.sol",
       "solcConfig": {
         "version": "0.8.9",
@@ -1070,6 +1071,41 @@
       ],
       "artifacts": [
         "IERC20"
+      ]
+    },
+    "C:\\apps\\repos\\metaverse-bank\\src\\token\\BEP20\\interfaces\\dapps\\system\\BEP20DappVoting.sol": {
+      "lastModificationDate": 1640701855865,
+      "contentHash": "1dd5ab6f51ddd1b13e8c960c8d8d253b",
+      "sourceName": "src/token/BEP20/interfaces/dapps/system/BEP20DappVoting.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BEP20DappDAO"
       ]
     }
   }

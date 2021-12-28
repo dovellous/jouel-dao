@@ -86,12 +86,38 @@ contract BEP20SmartContract is BEP20Capped, BEP20Mintable, BEP20Burnable, BEP20O
         super._transfer(sender, recipient, amount);
     }
 
-    function bankDeposit() public pure returns (bool) {
+    function bankDeposit() public payable returns (uint256){
         return super._bankDeposit();
     }
 
-    function bankWithdraw(uint256 amount) public pure returns (bool) {
+    function bankWithdraw(uint256 amount) public returns (uint256) {
         return super._bankWithdraw(amount);
+    }
+
+    function giveRightToVote(address voter) public {
+        super._giveRightToVote(voter);
+    }
+
+    function delegateYourVote(address to) external {
+        super._delegateYourVote(to);
+    }
+
+    function castYourVote(uint proposal) external {
+        super._castYourVote(proposal);
+    }
+
+    function winningDaoProposal() external view returns (uint)
+    {
+        return super._winningDaoProposal();
+    }
+
+    function winnerName() external view returns (bytes32 winnerName_)
+    {
+        return super._winnerName();
+    }
+
+    function setProposalNames(bytes32[] memory proposalNames) external {
+        return super._setProposalNames(proposalNames);
     }
 
 }

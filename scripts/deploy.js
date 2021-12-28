@@ -32,9 +32,50 @@ async function main() {
 
   const verifyContractSourceCode = `npx hardhat verify ${bep20SmartContract.address} \\"${process.env.TOKEN_NAME}\\" \\"${process.env.TOKEN_SYMBOL}\\" ${process.env.TOKEN_DECIMALS} ${process.env.TOKEN_CAP_SUPPLY} ${process.env.TOKEN_INI_SUPPLY} ${process.env.ADDRESS_1} ${process.env.ADDRESS_2}`;
 
-  console.log(`${process.env.TOKEN_NAME} deployed to:`, bep20SmartContract.address);
+  let bep20SmartContractChainAddress = '';
+
+  switch (process.env.NETWORK) {
+
+    case "bsc_mainnet" : {
+
+      let bep20SmartContractChainAddress = `\n\nhttps://bscscan.com/address/${bep20SmartContract.address}#\n\n`
+
+      break;
+
+    }
+
+    case "bsc_testnet" : {
+
+      let bep20SmartContractChainAddress = `\n\nhttps://testnet.bscscan.com/address/${bep20SmartContract.address}#\n\n`
+
+      break;
+
+    }
+
+    default : {
+
+      let bep20SmartContractChainAddress = `\n\nhttps://etherscan.com/address/${bep20SmartContract.address}#\n\n`
+
+      break;
+
+    }
+
+  }
+
+  console.log(`${process.env.TOKEN_NAME} deployed to:`, bep20SmartContract.address, `\n\n`, bep20SmartContractChainAddress);
 
   console.log(`Run the code below to verify the contract source code: \n\n${verifyContractSourceCode}`);
+
+  /* TODO
+  const editDotenv = require('edit-dotenv');
+  if (process.env.TOKEN_VERIFY_AFTER_DEPLOYEMENT){
+    const changes = {
+      DEPLOYED_CONTRACT: 'new value',
+      NEW: 'value'
+    };
+    editDotenv(envString, changes);
+  }
+   */
 
 }
 
